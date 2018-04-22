@@ -10,7 +10,6 @@ export class CurrentWeatherComponent implements OnInit {
 
   @Input() city: String;
   currentWeather: any;
-  tempUnit: String = 'F';
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
@@ -20,9 +19,9 @@ export class CurrentWeatherComponent implements OnInit {
           console.log(error);
       });
   }
-
+  //get current temperature or feels like temperature based on prop value
   getTemp(prop) {
-      return this.tempUnit === 'F' ? this.currentWeather[prop+'_f'] + ' F' : this.currentWeather[prop+'_c'] + ' C';
+      return this.currentWeather[prop+'_f'] + ' F';
   }
 
 }

@@ -19,6 +19,8 @@ export class ExtendedWeatherComponent implements OnInit {
           if(data && data.forecast && data.forecast.simpleforecast && data.forecast.simpleforecast.forecastday){
               this.forecastWeather = data.forecast.simpleforecast.forecastday;
           }
+      }, (error) => {
+          console.log(error);
       })
   }
   // this method returns temperature string for high/low temperatures. Takes index as input to locate the correct object in the array.  

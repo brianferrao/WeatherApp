@@ -58,12 +58,8 @@ describe('CurrentWeatherComponent', () => {
     weatherService.getCurrentWeather('OH/Cincinnati').subscribe((data) => {
         component.currentWeather = data;
     });
-    component.tempUnit = 'F';
     expect(component.getTemp('temp')).toBe('51.8 F');
     expect(component.getTemp('feelslike')).toBe('62.5 F');
-    component.tempUnit = 'C';
-    expect(component.getTemp('temp')).toBe('11 C');
-    expect(component.getTemp('feelslike')).toBe('13 C');
   }));
 
   it('should render view if currentWeather object is loaded', inject([WeatherService], (weatherService: WeatherService) => {
