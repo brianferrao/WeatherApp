@@ -45,8 +45,8 @@ let mockData = {
 };
 
 export class MockWeatherService {
-    public get10DayForecast(city: String): Observable<Object> {
-      return Observable.create((observer: Observer<Object>) => {
+    public get10DayForecast(city: String): Observable<any> {
+      return Observable.create((observer: Observer<any>) => {
         observer.next(mockData);
       });
     }
@@ -91,8 +91,8 @@ describe('ExtendedWeatherComponent', () => {
   }));
 
   it('should render view if forecastWeather object is loaded', inject([WeatherService], (weatherService: WeatherService) => {
-    weatherService.get10DayForecast('OH/Cincinnati').subscribe((data) => {
-        component.currentWeather = data.forecast.simpleforecast.forecastday;
+    weatherService.get10DayForecast('OH/Cincinnati').subscribe((data: any) => {
+        component.forecastWeather = data.forecast.simpleforecast.forecastday;
     });
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;

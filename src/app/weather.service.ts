@@ -13,7 +13,7 @@ export class WeatherService {
       return this.http.get(this.apiUrl + 'conditions/q/' + city + '.json');
   }
 
-  public get10DayForecast(city: String): Observable<Object> {
+  public get10DayForecast(city: String): Observable<any> {
       return this.http.get(this.apiUrl + 'forecast10day/q/' + city + '.json');
   }
 

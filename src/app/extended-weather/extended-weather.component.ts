@@ -7,20 +7,21 @@ import { WeatherService } from '../weather.service';
   styleUrls: ['./extended-weather.component.css']
 })
 export class ExtendedWeatherComponent implements OnInit {
-
+  //property passed to fetch the forecast data
   @Input() city: String;
   forecastWeather: any;
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
+      // fetch the forecast data on init
       this.weatherService.get10DayForecast(this.city)
-        .subscribe((data) => {
+        .subscribe((data: any) => {
           if(data && data.forecast && data.forecast.simpleforecast && data.forecast.simpleforecast.forecastday){
               this.forecastWeather = data.forecast.simpleforecast.forecastday;
           }
       })
   }
-    
+  // this method returns temperature string for high/low temperatures. Takes index as input to locate the correct object in the array.  
   getTemp(type, index) {
       return type === 'high' ? this.forecastWeather[index].high.fahrenheit + ' F' : this.forecastWeather[index].low.fahrenheit + ' F';
   }
