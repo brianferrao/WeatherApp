@@ -1,0 +1,32 @@
+<div class="container" *ngIf="currentWeather">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <header class="">{{currentWeather.display_location.full}}</header>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <img class="img-fluid" [src]="currentWeather.icon_url">
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div style="font-size:30px; text-align: center;"><b>{{getTemp('temp')}}</b></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-xs-6 text-right">
+                    <span>Feels Like :</span>
+                </div>
+                <div class="col-md-6 col-xs-6 text-left" style="padding-left:0px;">
+                    <span>{{getTemp('feelslike')}}</span>
+                </div>
+                <div class="col-md-6 col-xs-6 text-right">
+                    <span>Humidity :</span>
+                </div>
+                <div class="col-md-6 col-xs-6 text-left" style="padding-left:0px;">
+                    <span>{{currentWeather.relative_humidity}}</span>
+                </div>
+            </div>
+        </div>
+  </div>
+</div>
+

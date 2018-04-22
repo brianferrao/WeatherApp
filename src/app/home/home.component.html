@@ -1,0 +1,7 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-sm-12" *ngFor="let city of locations">
+            <app-current-weather [city]="city"></app-current-weather>
+        </div>
+    </div>
+</div>

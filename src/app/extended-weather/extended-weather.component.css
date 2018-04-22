@@ -1,0 +1,9 @@
+.singleDayWeather {
+    min-height: 150px;
+    border : 1px solid lightgrey;
+    text-align: center;
+}
+
+.img-center {
+    margin : 0px auto;
+}
